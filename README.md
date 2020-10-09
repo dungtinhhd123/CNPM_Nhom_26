@@ -3,7 +3,7 @@ Github của nhóm 26, môn học CNPM.
 
 Danh sách thành viên nhóm
 
-Họ Tên| SĐT | MSSV 
+Họ Tên | SĐT | MSSV 
 --- | --- | --- 
 Đào Xuân Dũng | 0836403058 | 20173057 
 Bùi Thanh Tùng | 0327432509 | 20154223  
