@@ -3,7 +3,7 @@
 GitHub của nhóm 26, môn học CNPM. 
 ---
 
-Danh sách thành viên của nhóm! 
+Danh sách thành viên của nhóm.
 --- 
 
 Họ Tên | SĐT | MSSV 
