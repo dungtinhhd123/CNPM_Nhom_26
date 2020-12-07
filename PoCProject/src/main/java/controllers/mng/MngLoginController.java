@@ -22,14 +22,14 @@ public class LogIn {
     public static boolean getCheck(){
         return check;
     }
-    public static void login(String user, String pass){
+    public static void login(String mngUsername, String mngPassword){
             try {
                     Connection conn = DB.getConn();
                     Statement st = conn.createStatement();
-                    ResultSet rs = st.executeQuery("select * from account");
+                    ResultSet rs = st.executeQuery("select * from mngAccount");
                     
                     while(rs.next()){
-                        if(rs.getString("username").equals(user) && rs.getString("password").equals(pass))
+                        if(rs.getString("mngUsername").equals(mngUsername) && rs.getString("mngPassword").equals(mngPassword))
                             check = true;
                     }
                     if(check){
