@@ -5,23 +5,26 @@
  */
 package controllers.mng;
 
-import services.MysqlConnection;
 import java.sql.*;
+import services.MysqlConnection;
+import javax.swing.JOptionPane;
 
 /**
  *
- * @author macbookpro
+ * @author keplegarry
  */
-public class MngLoginController {
+public class LogIn {
     private static boolean check = false;
+    
+    public LogIn(){
+    }
     
     public static boolean getCheck(){
         return check;
     }
-
-    public boolean mngLogin(String mngUsername, String mngPassword) {
-        try {
-                    Connection conn = MysqlConnection.getMysqlConnection();;
+    public static void login(String user, String pass){
+            try {
+                    Connection conn = DB.getConn();
                     Statement st = conn.createStatement();
                     ResultSet rs = st.executeQuery("select * from account");
                     
@@ -34,8 +37,7 @@ public class MngLoginController {
                     } else {
                         JOptionPane.showMessageDialog(null, "Tai khoan khong ton tai", "Warning", JOptionPane.WARNING_MESSAGE);
                     }   
-            } catch(SQLException e){
-        }       
+        } catch(SQLException e){
+        }
     }
-    
 }
