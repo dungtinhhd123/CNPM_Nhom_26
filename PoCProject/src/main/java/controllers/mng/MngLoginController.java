@@ -21,7 +21,7 @@ public class MngLoginController {
 
     public boolean mngLogin(String mngUsername, String mngPassword) {
         try {
-                    Connection conn = DB.getConn();
+                    Connection conn = MysqlConnection.getMysqlConnection();;
                     Statement st = conn.createStatement();
                     ResultSet rs = st.executeQuery("select * from account");
                     
