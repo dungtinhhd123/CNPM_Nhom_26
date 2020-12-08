@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package views.mng;
+package views;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import services.MysqlConnection;
-import controllers.mng.CapNhatCoSoVatChat;
+import controller.CapNhatCoSoVatChat;
 import javax.swing.JOptionPane;
 /**
  *
@@ -32,10 +32,10 @@ public class CapNhatCoSoVatChatFrame extends javax.swing.JFrame {
             Connection conn = MysqlConnection.getMysqlConnection();
             String phong = (String)jComboBoxPhong.getSelectedItem();
             Statement st = conn.createStatement();
-            ResultSet rs = st.executeQuery("select * from ThongTinCoSoVatChat");
+            ResultSet rs = st.executeQuery("select * from Infrastructures");
              while(rs.next()){
-                if(rs.getString("roomName").equals(phong)){
-                    jComboBoxVatPham.addItem(rs.getString("itemName"));
+                if(rs.getString("RoomName").equals(phong)){
+                    jComboBoxVatPham.addItem(rs.getString("ItemName"));
                 }
         }
         } catch(SQLException e){
@@ -182,8 +182,9 @@ public class CapNhatCoSoVatChatFrame extends javax.swing.JFrame {
         } else {
             CapNhatCoSoVatChat.capNhatCSVC
         ((String)jComboBoxVatPham.getSelectedItem(), (String)jComboBoxPhong.getSelectedItem(), datePicker.getDate().toString(), jTextFieldThongTin.getText(), (int)jSpinnerSoLuong.getValue());
-        }
         jButtonLamMoiActionPerformed(evt);
+        }
+        
     }//GEN-LAST:event_jButtonXacNhanActionPerformed
 
     private void jComboBoxPhongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxPhongActionPerformed
