@@ -5,7 +5,7 @@
  */
 package views.mng;
 
-import controller.*;
+import controllers.mng.*;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
