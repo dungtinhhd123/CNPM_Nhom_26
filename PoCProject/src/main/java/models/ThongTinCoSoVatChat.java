@@ -11,15 +11,13 @@ package models;
  */
 public class ThongTinCoSoVatChat {
     private String itemName;
-    private String itemColor;
     private String roomName;
     private String itemDescriptions;
     private int amount;
     private String lastTimeUpDate;
 
-    public ThongTinCoSoVatChat(String itemName, String itemColor, String roomName, String itemDescriptions, int amount, String lastTimeUpDate) {
+    public ThongTinCoSoVatChat(String itemName, String roomName, String itemDescriptions, int amount, String lastTimeUpDate) {
         this.itemName = itemName;
-        this.itemColor = itemColor;
         this.roomName = roomName;
         this.itemDescriptions = itemDescriptions;
         this.amount = amount;
@@ -49,10 +47,6 @@ public class ThongTinCoSoVatChat {
         return itemName;
     }
 
-    public String getItemColor() {
-        return itemColor;
-    }
-
     public String getRoomName() {
         return roomName;
     }
@@ -63,10 +57,6 @@ public class ThongTinCoSoVatChat {
 
     public void setItemName(String itemName) {
         this.itemName = itemName;
-    }
-
-    public void setItemColor(String itemColor) {
-        this.itemColor = itemColor;
     }
 
     public void setRoomName(String roomName) {
