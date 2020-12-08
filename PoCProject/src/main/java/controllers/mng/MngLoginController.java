@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
  *
  * @author keplegarry
  */
-public class LogIn {
+public class MngLoginController {
     private static boolean check = false;
     
     public LogIn(){
@@ -24,7 +24,7 @@ public class LogIn {
     }
     public static void login(String mngUsername, String mngPassword) throws ClassNotFoundException, SQLException{
             try {
-                    Connection conn = DB.getConn();
+                    Connection conn = MysqlConnection.getMysqlConnection();
                     Statement st = conn.createStatement();
                     ResultSet rs = st.executeQuery("select * from mngAccount");
                     
