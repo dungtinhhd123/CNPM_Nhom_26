@@ -3,66 +3,82 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controllers.mng;
+package controller;
 
-import services.MysqlConnection;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
 import models.ThongTinCoSoVatChat;
-import java.sql.*;
+import services.MysqlConnection;
 
 /**
  *
- * @author macbookpro
+ * @author keplegarry
  */
 public class CapNhatCoSoVatChat {
-
-    private String itemName;
-    private String itemColor;
-    private String roomName;
-    private String itemDescriptions;
-    private int amount;
-    private String lastTimeUpDate;
-
-    public boolean themMoiMonDo(ThongTinCoSoVatChat monDo) {
-        // Thêm mới 1 món đồ.
-        try {
-            Connection connection = MysqlConnection.getMysqlConnection();
-            // Lấy ra ItemId lớn nhất trong bảng Infrastructure
-            Statement statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT MAX(ITEMID) AS ITEMID FROM INFRASTRUCTURE");
-            int itemID = 1;
-            if (rs.next()) {
-                itemID = rs.getInt("ITEMID") + 1;
-            }
-            // Lấy xong 
-            //Tiến hành thêm món đồ mới vào.
-            String pquery = "INSERT INTO INFRASTRUCTURE(ITEMID ,\n"
-                    + "ITEMNAME ,\n"
-                    + "AMOUNT ,\n"
-                    + "COLOR  ,\n"
-                    + "LASTTIMEUPDATE ,\n"
-                    + "ITEMDESCRIPTION ,\n"
-                    + "ROOMNAME) "
-                    + "VALUES(?, ?, ?, ?, ?, ?, ?)";
-            PreparedStatement pstatement = connection.prepareStatement(pquery);
-            pstatement.setInt(1, itemID);
-            pstatement.setString(2, monDo.getItemName());
-            pstatement.setInt(3, monDo.getAmount());
-            pstatement.setString(4, monDo.getItemColor());
-            pstatement.setString(5, monDo.getLastTimeUpDate());
-            pstatement.setString(6, monDo.getItemDescriptions());
-            pstatement.setString(7, monDo.getRoomName());
-            pstatement.executeUpdate();
-            // thêm xong
-        } catch (Exception e) {
-            System.out.println(e);
-            return false;
-        }
-        return true;
+    public static ThongTinCoSoVatChat thongTinCoSoVatChat(String name, String room) {
+        try{
+            Connection conn = MysqlConnection.getMysqlConnection();
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery("select * from ThongTinCoSoVatChat");
+            while(rs.next()){
+                if(rs.getString("itemName").equals(name) && rs.getString("roomName").equals(room)){
+                    return new ThongTinCoSoVatChat(name, rs.getString("roomName"), rs.getString("itemDescriptions"), rs.getInt("amount"), rs.getString("lastTimeUpDate"));
+                }
+                }
+            } catch(SQLException e){
+                }
+            catch(ClassNotFoundException e){       
+            } 
+        return null;
     }
+    
+    public static void capNhatCSVC(String name, String room, String date, String description, int amount){
+        try{
+            Connection conn = MysqlConnection.getMysqlConnection();
+            Statement st = conn.createStatement();
+            PreparedStatement ps = conn.prepareStatement("update ThongTinCoSoVatChat "
+                    + "set itemName=?, itemDescriptions=?, amount=?, roomName=?, lastTimeUpDate=?" 
+                    + "where itemName='" + name + "' and roomName='" + room +"'");
+            ps.setString(1, name);
+            ps.setString(2, description);
+            ps.setInt(3, amount);
+            ps.setString(4, room);
+            ps.setString(5, date);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Cập nhật thành công");
 
-//    public static void main(String args[]) {
-//        CapNhatCoSoVatChat capNhat = new CapNhatCoSoVatChat();
-//        System.out.println(capNhat.themMoiMonDo(new ThongTinCoSoVatChat("Ghe Chu Tich", "Den", "Phong chuc nang 1", "Con moi toanh", 1, "2020:12:20 20:20:20")));
-//
-//    }
+            } catch(SQLException e){
+                }
+            catch(ClassNotFoundException e){       
+            }
+    }
+    
+    public static void themCSVC(String name, String room, String date, String description, int amount){
+        try{
+            Connection conn = MysqlConnection.getMysqlConnection();
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery("select * from ThongTinCoSoVatChat");
+            while(rs.next()){
+                if(rs.getString("itemName").equals(name) && rs.getString("roomName").equals(room)){
+                    JOptionPane.showMessageDialog(null, "Tên vật phẩm đã tồn tại", "Warning", JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+            }
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO ThongTinCoSoVatChat(itemName, itemDescriptions, amount, roomName, lastTimeUpDate) VALUES(?, ?, ?, ?, ?)");
+            ps.setString(1, name);
+            ps.setString(2, description);
+            ps.setInt(3, amount);
+            ps.setString(4, room);
+            ps.setString(5, date);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Cập nhật thành công");
+        } catch(SQLException e){
+                }
+            catch(ClassNotFoundException e){       
+            }
+    }
 }
