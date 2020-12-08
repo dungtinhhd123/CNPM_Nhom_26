@@ -22,7 +22,7 @@ public class MngLoginController {
     public static boolean getCheck(){
         return check;
     }
-    public static void login(String mngUsername, String mngPassword) throws ClassNotFoundException, SQLException{
+    public static void mngLogin(String mngUsername, String mngPassword) throws ClassNotFoundException, SQLException{
             try {
                     Connection conn = MysqlConnection.getMysqlConnection();
                     Statement st = conn.createStatement();
