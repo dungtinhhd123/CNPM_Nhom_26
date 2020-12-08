@@ -147,8 +147,8 @@ public class LogInView extends javax.swing.JFrame {
     private void login() throws ClassNotFoundException, SQLException{
         String user = txtUsername.getText();
         String pass = String.valueOf(txtPassword.getPassword());
-        controller.MngLoginController.mngLogin(user, pass);
-        if(controller.MngLoginController.getCheck()){
+        controllers.mng.MngLoginController.mngLogin(user, pass);
+        if(controllers.mng.MngLoginController.getCheck()){
             this.dispose();
             new MainFrame().setVisible(true);
         }
