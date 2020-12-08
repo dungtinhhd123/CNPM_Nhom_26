@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controllers.mng;
+package controller;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -23,10 +23,10 @@ public class CapNhatCoSoVatChat {
         try{
             Connection conn = MysqlConnection.getMysqlConnection();
             Statement st = conn.createStatement();
-            ResultSet rs = st.executeQuery("select * from ThongTinCoSoVatChat");
+            ResultSet rs = st.executeQuery("select * from Infrastructures");
             while(rs.next()){
-                if(rs.getString("itemName").equals(name) && rs.getString("roomName").equals(room)){
-                    return new ThongTinCoSoVatChat(name, rs.getString("roomName"), rs.getString("itemDescriptions"), rs.getInt("amount"), rs.getString("lastTimeUpDate"));
+                if(rs.getString("ItemName").equals(name) && rs.getString("RoomName").equals(room)){
+                    return new ThongTinCoSoVatChat(name, rs.getString("RoomName"), rs.getString("ItemDescriptions"), rs.getInt("Amount"), rs.getString("LastTimeUpdate"));
                 }
                 }
             } catch(SQLException e){
@@ -40,9 +40,9 @@ public class CapNhatCoSoVatChat {
         try{
             Connection conn = MysqlConnection.getMysqlConnection();
             Statement st = conn.createStatement();
-            PreparedStatement ps = conn.prepareStatement("update ThongTinCoSoVatChat "
-                    + "set itemName=?, itemDescriptions=?, amount=?, roomName=?, lastTimeUpDate=?" 
-                    + "where itemName='" + name + "' and roomName='" + room +"'");
+            PreparedStatement ps = conn.prepareStatement("update Infrastructures "
+                    + "set ItemName=?, ItemDescriptions=?, Amount=?, RoomName=?, LastTimeUpdate=?" 
+                    + "where ItemName='" + name + "' and RoomName='" + room +"'");
             ps.setString(1, name);
             ps.setString(2, description);
             ps.setInt(3, amount);
@@ -61,14 +61,14 @@ public class CapNhatCoSoVatChat {
         try{
             Connection conn = MysqlConnection.getMysqlConnection();
             Statement st = conn.createStatement();
-            ResultSet rs = st.executeQuery("select * from ThongTinCoSoVatChat");
+            ResultSet rs = st.executeQuery("select * from Infrastructures");
             while(rs.next()){
-                if(rs.getString("itemName").equals(name) && rs.getString("roomName").equals(room)){
+                if(rs.getString("ItemName").equals(name) && rs.getString("RoomName").equals(room)){
                     JOptionPane.showMessageDialog(null, "Tên vật phẩm đã tồn tại", "Warning", JOptionPane.WARNING_MESSAGE);
                     return;
                 }
             }
-            PreparedStatement ps = conn.prepareStatement("INSERT INTO ThongTinCoSoVatChat(itemName, itemDescriptions, amount, roomName, lastTimeUpDate) VALUES(?, ?, ?, ?, ?)");
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO Infrastructures(ItemName, ItemDescriptions, Amount, RoomName, LastTimeUpdate) VALUES(?, ?, ?, ?, ?)");
             ps.setString(1, name);
             ps.setString(2, description);
             ps.setInt(3, amount);
