@@ -22,7 +22,7 @@ public class LogIn {
     public static boolean getCheck(){
         return check;
     }
-    public static void login(String mngUsername, String mngPassword){
+    public static void login(String mngUsername, String mngPassword) throws ClassNotFoundException, SQLException{
             try {
                     Connection conn = DB.getConn();
                     Statement st = conn.createStatement();
