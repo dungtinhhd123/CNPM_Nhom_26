@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package views.mng;
+package views;
 
-import controllers.*;
+import controller.*;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -36,7 +36,6 @@ public class MainFrame extends javax.swing.JFrame {
     private void XemLichSuDung(){
         DefaultTableModel model = (DefaultTableModel) jTableLich.getModel();
         XemLich.show(model);
-        setLocationRelativeTo(null);
     }
     
    
@@ -65,7 +64,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jPanelCentre = new javax.swing.JPanel();
         jPanelTrangChuCentre = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jPanelLichCentre = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableLich = new javax.swing.JTable();
@@ -75,6 +74,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabelLoaiSuKien = new javax.swing.JLabel();
         jLabelGia = new javax.swing.JLabel();
         jLabelMoTa = new javax.swing.JLabel();
+        jButtonCapNhatDuLieu = new javax.swing.JButton();
         jPanelDonDangKyCentre = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jPanelQuanLyCSVCCentre = new javax.swing.JPanel();
@@ -317,26 +317,37 @@ public class MainFrame extends javax.swing.JFrame {
 
         jPanelCentre.setLayout(new java.awt.CardLayout());
 
-        jLabel6.setText("Trang chủ");
+        jPanelTrangChuCentre.setBackground(new java.awt.Color(204, 204, 204));
+
+        jButton1.setText("Thêm sự kiện");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelTrangChuCentreLayout = new javax.swing.GroupLayout(jPanelTrangChuCentre);
         jPanelTrangChuCentre.setLayout(jPanelTrangChuCentreLayout);
         jPanelTrangChuCentreLayout.setHorizontalGroup(
             jPanelTrangChuCentreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTrangChuCentreLayout.createSequentialGroup()
-                .addContainerGap(324, Short.MAX_VALUE)
-                .addComponent(jLabel6)
-                .addGap(333, 333, 333))
+            .addGroup(jPanelTrangChuCentreLayout.createSequentialGroup()
+                .addGap(290, 290, 290)
+                .addComponent(jButton1)
+                .addContainerGap(314, Short.MAX_VALUE))
         );
         jPanelTrangChuCentreLayout.setVerticalGroup(
             jPanelTrangChuCentreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelTrangChuCentreLayout.createSequentialGroup()
-                .addGap(133, 133, 133)
-                .addComponent(jLabel6)
-                .addContainerGap(250, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTrangChuCentreLayout.createSequentialGroup()
+                .addContainerGap(291, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(83, 83, 83))
         );
 
         jPanelCentre.add(jPanelTrangChuCentre, "card2");
+
+        jPanelLichCentre.setBackground(new java.awt.Color(204, 204, 204));
+
+        jScrollPane1.setBackground(new java.awt.Color(204, 204, 204));
 
         jTableLich = new javax.swing.JTable(){
             public boolean isCellEditable(int row, int col){
@@ -359,6 +370,7 @@ public class MainFrame extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        jTableLich.setBackground(new java.awt.Color(204, 204, 204));
         jTableLich.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTableLichMouseClicked(evt);
@@ -378,26 +390,38 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabelMoTa.setText("Mô tả:");
 
+        jButtonCapNhatDuLieu.setText("Cập nhật dữ liệu");
+        jButtonCapNhatDuLieu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCapNhatDuLieuActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelLichCentreLayout = new javax.swing.GroupLayout(jPanelLichCentre);
         jPanelLichCentre.setLayout(jPanelLichCentreLayout);
         jPanelLichCentreLayout.setHorizontalGroup(
             jPanelLichCentreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1)
             .addGroup(jPanelLichCentreLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanelLichCentreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelMoTa)
                     .addGroup(jPanelLichCentreLayout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(jPanelLichCentreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelPhong)
-                            .addComponent(jLabelTenSuKien))
-                        .addGap(92, 92, 92)
-                        .addGroup(jPanelLichCentreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelThoiGian)
+                            .addComponent(jLabelMoTa)
                             .addGroup(jPanelLichCentreLayout.createSequentialGroup()
-                                .addComponent(jLabelLoaiSuKien)
-                                .addGap(185, 185, 185)
-                                .addComponent(jLabelGia)))))
+                                .addGroup(jPanelLichCentreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelPhong)
+                                    .addComponent(jLabelTenSuKien))
+                                .addGap(92, 92, 92)
+                                .addGroup(jPanelLichCentreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelThoiGian)
+                                    .addGroup(jPanelLichCentreLayout.createSequentialGroup()
+                                        .addComponent(jLabelLoaiSuKien)
+                                        .addGap(185, 185, 185)
+                                        .addComponent(jLabelGia))))))
+                    .addGroup(jPanelLichCentreLayout.createSequentialGroup()
+                        .addGap(280, 280, 280)
+                        .addComponent(jButtonCapNhatDuLieu)))
                 .addContainerGap(258, Short.MAX_VALUE))
         );
         jPanelLichCentreLayout.setVerticalGroup(
@@ -415,7 +439,9 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(jLabelGia))
                 .addGap(27, 27, 27)
                 .addComponent(jLabelMoTa)
-                .addGap(0, 93, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addComponent(jButtonCapNhatDuLieu)
+                .addContainerGap())
         );
 
         jPanelCentre.add(jPanelLichCentre, "card4");
@@ -441,6 +467,11 @@ public class MainFrame extends javax.swing.JFrame {
 
         jPanelCentre.add(jPanelDonDangKyCentre, "card5");
 
+        jTabbedPane1.setAutoscrolls(true);
+        jTabbedPane1.setBackground(new java.awt.Color(102, 102, 102));
+
+        jPanelCapNhatCSVC.setBackground(new java.awt.Color(204, 204, 204));
+
         jLabel7.setText("Chọn vật phẩm:");
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
@@ -450,6 +481,8 @@ public class MainFrame extends javax.swing.JFrame {
                 jButtonChiTietActionPerformed(evt);
             }
         });
+
+        jPanel1.setBackground(java.awt.SystemColor.controlHighlight);
 
         jLabel11.setText("Tên vật phẩm:");
 
@@ -576,6 +609,8 @@ public class MainFrame extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab(" Cập nhật cơ sở vật chất", jPanelCapNhatCSVC);
+
+        jPanelThemCSVC.setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel17.setText("Chọn phòng:");
 
@@ -780,6 +815,16 @@ public class MainFrame extends javax.swing.JFrame {
                 
         
     }//GEN-LAST:event_jTableLichMouseClicked
+
+    private void jButtonCapNhatDuLieuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCapNhatDuLieuActionPerformed
+        DefaultTableModel model = (DefaultTableModel) jTableLich.getModel();
+        model.setRowCount(0);
+        XemLichSuDung();
+    }//GEN-LAST:event_jButtonCapNhatDuLieuActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        new ThemSuKienFrame().setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
     
     private void jComboBoxVatPhamUpdate(){
         jComboBoxVatPham.removeAllItems();
@@ -837,7 +882,9 @@ public class MainFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonCapNhat;
+    private javax.swing.JButton jButtonCapNhatDuLieu;
     private javax.swing.JButton jButtonChiTiet;
     private javax.swing.JButton jButtonLamMoi1;
     private javax.swing.JButton jButtonXacNhan1;
@@ -861,7 +908,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelGia;
