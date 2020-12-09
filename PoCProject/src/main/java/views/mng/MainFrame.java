@@ -752,6 +752,10 @@ public class MainFrame extends javax.swing.JFrame {
             jPanelTrangChuCentre.setVisible(false);
             jPanelQuanLyCSVCCentre.setVisible(false);
             jPanelLichCentre.setVisible(false);
+            JScrollPane donDangKy = new PheDuyetYeuCauNguoiDungViews().pheDuyetYeuCauNguoiDung();         
+            donDangKy.setSize(jPanelDonDangKyCentre.getSize());
+            jPanelDonDangKyCentre.add(donDangKy);
+            jPanelDonDangKyCentre.remove(jLabel9);
             jPanelDonDangKyCentre.setVisible(true);
         }
         if(evt.getSource() == jPanelDangXuat){
