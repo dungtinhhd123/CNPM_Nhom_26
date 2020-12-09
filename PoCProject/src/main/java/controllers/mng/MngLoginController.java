@@ -16,8 +16,6 @@ import javax.swing.JOptionPane;
 public class MngLoginController {
     private static boolean check = false;
     
-    public LogIn(){
-    }
     
     public static boolean getCheck(){
         return check;
