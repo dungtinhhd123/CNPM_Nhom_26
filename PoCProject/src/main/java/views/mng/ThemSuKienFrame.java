@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package views.mng;
+package views;
 import models.LenLichSuKien;
-import controllers.mng.LenLichSuKienController;
+import controller.LenLichSuKienController;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import javax.swing.JOptionPane;
@@ -114,6 +114,11 @@ public class ThemSuKienFrame extends javax.swing.JFrame {
         });
 
         jButton2.setText("Hủy");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -225,6 +230,19 @@ public class ThemSuKienFrame extends javax.swing.JFrame {
             LenLichSuKienController.lenLich(new LenLichSuKien(roomName, startTime, finishTime, eventName, eventDescriptions, fee, note)); 
         } 
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        if(jTextFieldTenSk.getText().length() == 0 || jTextFieldLoaiSk.getText().length() == 0 || jTextFieldMoTa.getText().length() == 0
+            || jTextFieldChiPhi.getText().length() == 0 || dateTimePickerStart.getDatePicker().toString().length() == 0
+            || dateTimePickerStart.getTimePicker().toString().length() == 0 || dateTimePickerFinish.getDatePicker().toString().length() == 0
+            || dateTimePickerFinish.getTimePicker().toString().length() == 0){
+            if (JOptionPane.showConfirmDialog(null, "Bạn có muốn hủy?", "WARNING",
+                    JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                this.dispose();
+            } else {              
+            }
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
