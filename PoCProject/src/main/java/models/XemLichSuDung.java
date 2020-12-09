@@ -14,12 +14,6 @@ public class XemLichSuDung {
     private String finishTime;
     private String eventName;
     
-    public XemLichSuDung(String roomName, String startTime, String finishTime, String eventName){
-        this.roomName = roomName;
-        this.startTime = startTime;
-        this.finishTime = finishTime;
-        this.eventName = eventName;
-    }
 
     public String getRoomName() {
         return roomName;
