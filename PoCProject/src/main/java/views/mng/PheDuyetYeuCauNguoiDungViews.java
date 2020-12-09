@@ -15,6 +15,7 @@ import java.awt.event.MouseListener;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumnModel;
 import controllers.mng.ThongTinNguoiSuDungController;
+import java.awt.Toolkit;
 import models.ThongTinNguoSuDungModels;
 import javax.swing.JLabel;
 
@@ -54,7 +55,10 @@ public class PheDuyetYeuCauNguoiDungViews {
                     if (clickedColumn == 1) {
                         // Nếu cột được chọn là cột username thì hiển thị thông tin của người đăng kí lên
                         JFrame jFrame2 = new JFrame("Thông tin người sử dung");
+
                         jFrame2.setSize(380, 450);
+                        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+                        jFrame2.setLocation(dim.width / 2 - jFrame2.getSize().width / 2, dim.height / 2 - jFrame2.getSize().height / 2);
                         jFrame2.setLayout(null);
                         jFrame2.setVisible(true);
                         //
@@ -108,6 +112,8 @@ public class PheDuyetYeuCauNguoiDungViews {
                         // hợp mô tả quá dài không hiển thị hết được trong bảng.
                         JFrame jFrame3 = new JFrame("Mô tả yêu cầu");
                         jFrame3.setSize(400, 400);
+                        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+                        jFrame3.setLocation(dim.width / 2 - jFrame3.getSize().width / 2, dim.height / 2 - jFrame3.getSize().height / 2);
                         jFrame3.setLayout(null);
                         jFrame3.setVisible(true);
                         JLabel moTaYeuCau = new JLabel(jTable1.getValueAt(clickedRow, 5).toString());

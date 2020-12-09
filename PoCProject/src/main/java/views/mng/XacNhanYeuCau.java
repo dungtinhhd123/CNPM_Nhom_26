@@ -10,7 +10,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import controllers.mng.PheDuyetYeuCauNguoiDung;
 import controllers.mng.CurrentMngUsername;
+import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Toolkit;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
@@ -41,6 +43,8 @@ public class XacNhanYeuCau {
         jFrame.setSize(700, 600);
         jFrame.setLayout(null);
         jFrame.setVisible(true);
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();        
+        jFrame.setLocation(dim.width / 2 - jFrame.getSize().width / 2, dim.height / 2 - jFrame.getSize().height / 2);
         // Label mang dòng "Quyết định đối với yêu cầu".
         JLabel phanQuyet = new JLabel("Quyết định đối với yêu cầu");
         phanQuyet.setBounds(170, 30, 350, 50);
