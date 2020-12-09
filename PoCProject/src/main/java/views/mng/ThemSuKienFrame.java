@@ -5,7 +5,7 @@
  */
 package views.mng;
 import models.LenLichSuKien;
-import controller.LenLichSuKienController;
+import controllers.mng.LenLichSuKienController;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import javax.swing.JOptionPane;
