@@ -24,7 +24,7 @@ public class MngLoginController {
             try {
                     Connection conn = MysqlConnection.getMysqlConnection();
                     Statement st = conn.createStatement();
-                    ResultSet rs = st.executeQuery("select * from mngAccount");
+                    ResultSet rs = st.executeQuery("select * from MANAGER");
                     
                     while(rs.next()){
                         if(rs.getString("mngUsername").equals(mngUsername) && rs.getString("mngPassword").equals(mngPassword))
