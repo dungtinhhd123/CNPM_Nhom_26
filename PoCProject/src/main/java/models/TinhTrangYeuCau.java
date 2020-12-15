@@ -11,7 +11,7 @@ package models;
  */
 public class TinhTrangYeuCau {
     private String state;
-    
+    private int fee;
     private String note;
     private int requestID;
     private String startTimeRequest;
@@ -59,6 +59,15 @@ public class TinhTrangYeuCau {
         this.state = state;
         this.note = note;
     }
+    
+    public TinhTrangYeuCau(String state, String note, int requestid, String starttime, String finishtime, int fee){
+        this.state = state;
+        this.note = note;
+        this.requestID = requestid;
+        this.startTimeRequest = starttime;
+        this.finishTimeRequest = finishtime;
+        this.fee = fee;
+    }
 
     public String getState() {
         return state;
@@ -76,4 +85,7 @@ public class TinhTrangYeuCau {
         this.note = note;
     }
     
+    public int getFee(){
+        return fee;
+    }
 }
