@@ -104,8 +104,8 @@ public class PheDuyetYeuCauNguoiDungViews {
                         // Nếu cột được chọn là cột RequestID thì hiển thị giao diện phê duyệt của yêu cầu đó lên
                         int requestID = Integer.valueOf(jTable1.getValueAt(clickedRow, 0).toString());
                         setReset(true);
-//                        XacNhanYeuCau xacNhanYeuCau = new XacNhanYeuCau(requestID);
-//                        setReset(xacNhanYeuCau.isReset());
+                        XacNhanYeuCau xacNhanYeuCau = new XacNhanYeuCau(requestID);
+                        setReset(xacNhanYeuCau.isReset());
 
                     } else if (clickedColumn == 5) {
                         // Nếu cột được chọn là mô tả yêu cầu thì hiển thị mô tả yêu cầu ở một JFrame mới. Phòng trường

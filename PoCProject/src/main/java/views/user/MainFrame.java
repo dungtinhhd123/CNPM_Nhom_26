@@ -5,6 +5,7 @@
  */
 package views.user;
 
+import controllers.user.CurrentUserUsername;
 import javax.swing.*;
 import controllers.user.XemTinhTrangYeuCauController;
 import controllers.user.XemLichSuDungNhaVanHoaController;
@@ -25,7 +26,7 @@ public class MainFrame extends JFrame {
 
     private JButton trangChu, xemYeuCau, xemLichSuDung, taoYeuCauMoi, hienThi;
     private XemTinhTrangYeuCauController tinhTrangYeuCau = new XemTinhTrangYeuCauController();
-    private JTable jTable1 = tinhTrangYeuCau.hienThiTinhTrangYeuCau(tinhTrangYeuCau.getTinhTrangYeuCau("nguyenvana"));
+    private JTable jTable1 = tinhTrangYeuCau.hienThiTinhTrangYeuCau(tinhTrangYeuCau.getTinhTrangYeuCau(new CurrentUserUsername().getCurrentUserUsrename()));
     private JTableHeader headerTinhTrangYeuCau = jTable1.getTableHeader();
     private JTableHeader headerDanhSachSuKien;
     private TableColumnModel columnModelDanhSachSuKien;

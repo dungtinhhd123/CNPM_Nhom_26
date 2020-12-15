@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import models.ThongTinCoSoVatChat;
+import models.TinhTrangYeuCau;
 import services.MysqlConnection;
 
 /**
@@ -31,7 +32,7 @@ public class MainFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         jComboBoxVatPhamUpdate();
         XemLichSuDung();
-        
+        XemThongTinDangKy();
     }
     
     private void XemLichSuDung(){
@@ -39,6 +40,10 @@ public class MainFrame extends javax.swing.JFrame {
         XemLich.show(model);
     }
     
+    private void XemThongTinDangKy(){
+        DefaultTableModel model = (DefaultTableModel) jTableDonDangKy.getModel();
+        ThongTinNguoiDungDangKy.print(model);
+    }
    
     /**
      * This method is called from within the constructor to initialize the form.
@@ -77,6 +82,9 @@ public class MainFrame extends javax.swing.JFrame {
         jLabelMoTa = new javax.swing.JLabel();
         jButtonCapNhatDuLieu = new javax.swing.JButton();
         jPanelDonDangKyCentre = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTableDonDangKy = new javax.swing.JTable();
+        jButton2 = new javax.swing.JButton();
         jPanelQuanLyCSVCCentre = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanelCapNhatCSVC = new javax.swing.JPanel();
@@ -169,7 +177,7 @@ public class MainFrame extends javax.swing.JFrame {
             jPanelTrangChuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelTrangChuLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -446,15 +454,54 @@ public class MainFrame extends javax.swing.JFrame {
 
         jPanelCentre.add(jPanelLichCentre, "card4");
 
+        jTableDonDangKy.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "id", "Tên người dùng", "T/g bắt đầu", "T/g kết thúc", "Phòng", "Mô tả"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jTableDonDangKy.setCellSelectionEnabled(true);
+        jTableDonDangKy.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableDonDangKyMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jTableDonDangKy);
+
+        jButton2.setText("Cập nhật");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelDonDangKyCentreLayout = new javax.swing.GroupLayout(jPanelDonDangKyCentre);
         jPanelDonDangKyCentre.setLayout(jPanelDonDangKyCentreLayout);
         jPanelDonDangKyCentreLayout.setHorizontalGroup(
             jPanelDonDangKyCentreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 715, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 775, Short.MAX_VALUE)
+            .addGroup(jPanelDonDangKyCentreLayout.createSequentialGroup()
+                .addGap(321, 321, 321)
+                .addComponent(jButton2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelDonDangKyCentreLayout.setVerticalGroup(
             jPanelDonDangKyCentreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 399, Short.MAX_VALUE)
+            .addGroup(jPanelDonDangKyCentreLayout.createSequentialGroup()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addContainerGap())
         );
 
         jPanelCentre.add(jPanelDonDangKyCentre, "card5");
@@ -748,9 +795,9 @@ public class MainFrame extends javax.swing.JFrame {
             jPanelTrangChuCentre.setVisible(false);
             jPanelQuanLyCSVCCentre.setVisible(false);
             jPanelLichCentre.setVisible(false);
-            JScrollPane donDangKy = new PheDuyetYeuCauNguoiDungViews().pheDuyetYeuCauNguoiDung();         
-            donDangKy.setSize(jPanelDonDangKyCentre.getSize());
-            jPanelDonDangKyCentre.add(donDangKy);
+//            JScrollPane donDangKy = new PheDuyetYeuCauNguoiDungViews().pheDuyetYeuCauNguoiDung();         
+//            donDangKy.setSize(jPanelDonDangKyCentre.getSize());
+//            jPanelDonDangKyCentre.add(donDangKy);
             jPanelDonDangKyCentre.setVisible(true);
         }
         if(evt.getSource() == jPanelDangXuat){
@@ -824,6 +871,16 @@ public class MainFrame extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         new ThemSuKienFrame().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        DefaultTableModel model = (DefaultTableModel) jTableDonDangKy.getModel();
+        model.setRowCount(0);
+        XemThongTinDangKy();;
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTableDonDangKyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableDonDangKyMouseClicked
+        new ChapNhanYeuCau((DefaultTableModel) jTableDonDangKy.getModel(), jTableDonDangKy.getSelectedRow()).setVisible(true);
+    }//GEN-LAST:event_jTableDonDangKyMouseClicked
     
     private void jComboBoxVatPhamUpdate(){
         jComboBoxVatPham.removeAllItems();
@@ -882,6 +939,7 @@ public class MainFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonCapNhat;
     private javax.swing.JButton jButtonCapNhatDuLieu;
     private javax.swing.JButton jButtonChiTiet;
@@ -932,8 +990,10 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelTrangChu;
     private javax.swing.JPanel jPanelTrangChuCentre;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSpinner jSpinnerSoLuong1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTableDonDangKy;
     private javax.swing.JTable jTableLich;
     private javax.swing.JTextField jTextFieldTT;
     private javax.swing.JTextField jTextFieldTT1;
