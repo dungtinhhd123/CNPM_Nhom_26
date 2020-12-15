@@ -41,7 +41,7 @@ public class CapNhatCoSoVatChat {
             Connection conn = MysqlConnection.getMysqlConnection();
             Statement st = conn.createStatement();
             PreparedStatement ps = conn.prepareStatement("update Infrastructure "
-                    + "set ItemName=?, ItemDescriptions=?, Amount=?, RoomName=?, LastTimeUpdate=?" 
+                    + "set ItemName=?, ItemDescription=?, Amount=?, RoomName=?, LastTimeUpdate=?" 
                     + "where ItemName='" + name + "' and RoomName='" + room +"'");
             ps.setString(1, name);
             ps.setString(2, description);
