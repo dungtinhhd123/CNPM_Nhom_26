@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  * @author keplegarry
  */
 public class ThemSuKienFrame extends javax.swing.JFrame {
-
+    LenLichSuKien lichSuKien;
     /**
      * Creates new form ThemSuKienFrame
      */
@@ -24,9 +24,9 @@ public class ThemSuKienFrame extends javax.swing.JFrame {
     }
     
     private boolean check(){
-        if(jTextFieldTenSk.getText().length() == 0 || jTextFieldLoaiSk.getText().length() == 0 || jTextFieldMoTa.getText().length() == 0
-            || jTextFieldChiPhi.getText().length() == 0 || dateTimePickerStart.getDatePicker().toString().length() == 0
-            || dateTimePickerStart.getTimePicker().toString().length() == 0 || dateTimePickerFinish.getDatePicker().toString().length() == 0
+        if(jTextFieldTenSk.getText().length() != 0 || jTextFieldLoaiSk.getText().length() != 0 || jTextFieldMoTa.getText().length() == 0
+            || jTextFieldChiPhi.getText().length() != 0 || dateTimePickerStart.getDatePicker().toString().length() == 0
+            || dateTimePickerStart.getTimePicker().toString().length() != 0 || dateTimePickerFinish.getDatePicker().toString().length() == 0
             || dateTimePickerFinish.getTimePicker().toString().length() == 0)
         {
             JOptionPane.showMessageDialog(null, "Vui vòng điền đẩy đủ thông tin", "Warning", JOptionPane.WARNING_MESSAGE);
@@ -51,6 +51,7 @@ public class ThemSuKienFrame extends javax.swing.JFrame {
         try{
                 int note = Integer.parseInt(jTextFieldLoaiSk.getText());
             } catch(NumberFormatException e){
+                System.out.println(e);
                 JOptionPane.showMessageDialog(null, "Loại sự kiện không hợp lệ", "Warning", JOptionPane.WARNING_MESSAGE);
                 return false;
             } 
@@ -90,7 +91,12 @@ public class ThemSuKienFrame extends javax.swing.JFrame {
 
         jLabel1.setText("Chọn phòng:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hội trường", "Phòng 1" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hội trường", "Phòng chức năng 1" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Tên sự kiện:");
 
@@ -160,7 +166,7 @@ public class ThemSuKienFrame extends javax.swing.JFrame {
                         .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(dateTimePickerFinish, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
+                            .addComponent(dateTimePickerFinish, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(dateTimePickerStart, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -232,17 +238,23 @@ public class ThemSuKienFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        if(jTextFieldTenSk.getText().length() == 0 || jTextFieldLoaiSk.getText().length() == 0 || jTextFieldMoTa.getText().length() == 0
-            || jTextFieldChiPhi.getText().length() == 0 || dateTimePickerStart.getDatePicker().toString().length() == 0
-            || dateTimePickerStart.getTimePicker().toString().length() == 0 || dateTimePickerFinish.getDatePicker().toString().length() == 0
-            || dateTimePickerFinish.getTimePicker().toString().length() == 0){
+        if(jTextFieldTenSk.getText().length() != 0 || jTextFieldLoaiSk.getText().length() != 0 || jTextFieldMoTa.getText().length() == 0
+            || jTextFieldChiPhi.getText().length() != 0 || dateTimePickerStart.getDatePicker().toString().length() == 0
+            || dateTimePickerStart.getTimePicker().toString().length() != 0 || dateTimePickerFinish.getDatePicker().toString().length() == 0
+            || dateTimePickerFinish.getTimePicker().toString().length() != 0){            
             if (JOptionPane.showConfirmDialog(null, "Bạn có muốn hủy?", "WARNING",
                     JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                 this.dispose();
-            } else {              
+            } else {                           
             }
+        } else {
+//            this.dispose();
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments

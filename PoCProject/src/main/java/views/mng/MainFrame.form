@@ -150,7 +150,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel1" pref="34" max="32767" attributes="0"/>
+                          <Component id="jLabel1" pref="48" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -198,7 +198,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="17" max="32767" attributes="0"/>
+                          <EmptySpace pref="18" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -243,7 +243,7 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="17" max="32767" attributes="0"/>
+                          <EmptySpace pref="18" max="32767" attributes="0"/>
                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                       </Group>
@@ -290,7 +290,7 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="17" max="32767" attributes="0"/>
+                          <EmptySpace pref="18" max="32767" attributes="0"/>
                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                       </Group>
@@ -339,7 +339,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="17" max="32767" attributes="0"/>
+                          <EmptySpace pref="18" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -683,7 +683,7 @@
                                           <Component id="jComboBoxVatPham" min="-2" pref="226" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                                           <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace pref="30" max="32767" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
                                           <Component id="jComboBoxPhong" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="131" max="-2" attributes="0"/>
                                       </Group>
@@ -785,7 +785,7 @@
                                           </Group>
                                           <Component id="jTextFieldTT" min="-2" pref="499" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace pref="88" max="32767" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -870,9 +870,10 @@
                         <Component class="javax.swing.JComboBox" name="jComboBoxPhong">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="2">
+                              <StringArray count="3">
                                 <StringItem index="0" value="H&#x1ed9;i tr&#x1b0;&#x1edd;ng"/>
-                                <StringItem index="1" value="Ph&#xf2;ng 1"/>
+                                <StringItem index="1" value="Ph&#xf2;ng ch&#x1ee9;c n&#x103;ng 1"/>
+                                <StringItem index="2" value=" "/>
                               </StringArray>
                             </Property>
                           </Properties>
@@ -943,7 +944,7 @@
                                           <Component id="jButtonLamMoi1" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace pref="85" max="32767" attributes="0"/>
+                                  <EmptySpace pref="143" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -993,7 +994,7 @@
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                               <StringArray count="2">
                                 <StringItem index="0" value="H&#x1ed9;i tr&#x1b0;&#x1edd;ng"/>
-                                <StringItem index="1" value="Ph&#xf2;ng 1"/>
+                                <StringItem index="1" value="Ph&#xf2;ng ch&#x1ee9;c n&#x103;ng 1"/>
                               </StringArray>
                             </Property>
                           </Properties>

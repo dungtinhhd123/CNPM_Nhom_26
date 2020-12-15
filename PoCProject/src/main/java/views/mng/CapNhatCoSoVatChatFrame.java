@@ -32,7 +32,7 @@ public class CapNhatCoSoVatChatFrame extends javax.swing.JFrame {
             Connection conn = MysqlConnection.getMysqlConnection();
             String phong = (String)jComboBoxPhong.getSelectedItem();
             Statement st = conn.createStatement();
-            ResultSet rs = st.executeQuery("select * from Infrastructures");
+            ResultSet rs = st.executeQuery("select * from Infrastructure");
              while(rs.next()){
                 if(rs.getString("RoomName").equals(phong)){
                     jComboBoxVatPham.addItem(rs.getString("ItemName"));
@@ -102,7 +102,7 @@ public class CapNhatCoSoVatChatFrame extends javax.swing.JFrame {
             }
         });
 
-        jComboBoxPhong.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hội trường", "Phòng 1" }));
+        jComboBoxPhong.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hội trường", "Phòng chức năng 1" }));
         jComboBoxPhong.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxPhongActionPerformed(evt);
