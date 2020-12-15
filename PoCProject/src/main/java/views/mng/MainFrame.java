@@ -77,7 +77,6 @@ public class MainFrame extends javax.swing.JFrame {
         jLabelMoTa = new javax.swing.JLabel();
         jButtonCapNhatDuLieu = new javax.swing.JButton();
         jPanelDonDangKyCentre = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
         jPanelQuanLyCSVCCentre = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanelCapNhatCSVC = new javax.swing.JPanel();
@@ -170,7 +169,7 @@ public class MainFrame extends javax.swing.JFrame {
             jPanelTrangChuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelTrangChuLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -200,7 +199,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(jPanelQuanLyCSVCLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jLabel2)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         jPanelLich.setBackground(new java.awt.Color(153, 153, 153));
@@ -227,7 +226,7 @@ public class MainFrame extends javax.swing.JFrame {
         jPanelLichLayout.setVerticalGroup(
             jPanelLichLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelLichLayout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
+                .addContainerGap(17, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addGap(21, 21, 21))
         );
@@ -256,7 +255,7 @@ public class MainFrame extends javax.swing.JFrame {
         jPanelDonDangKyLayout.setVerticalGroup(
             jPanelDonDangKyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDonDangKyLayout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
+                .addContainerGap(17, Short.MAX_VALUE)
                 .addComponent(jLabel4)
                 .addGap(21, 21, 21))
         );
@@ -287,7 +286,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(jPanelDangXuatLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jLabel5)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanelLeftLayout = new javax.swing.GroupLayout(jPanelLeft);
@@ -447,23 +446,15 @@ public class MainFrame extends javax.swing.JFrame {
 
         jPanelCentre.add(jPanelLichCentre, "card4");
 
-        jLabel9.setText("DonDangKy");
-
         javax.swing.GroupLayout jPanelDonDangKyCentreLayout = new javax.swing.GroupLayout(jPanelDonDangKyCentre);
         jPanelDonDangKyCentre.setLayout(jPanelDonDangKyCentreLayout);
         jPanelDonDangKyCentreLayout.setHorizontalGroup(
             jPanelDonDangKyCentreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelDonDangKyCentreLayout.createSequentialGroup()
-                .addGap(312, 312, 312)
-                .addComponent(jLabel9)
-                .addContainerGap(339, Short.MAX_VALUE))
+            .addGap(0, 715, Short.MAX_VALUE)
         );
         jPanelDonDangKyCentreLayout.setVerticalGroup(
             jPanelDonDangKyCentreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelDonDangKyCentreLayout.createSequentialGroup()
-                .addGap(151, 151, 151)
-                .addComponent(jLabel9)
-                .addContainerGap(232, Short.MAX_VALUE))
+            .addGap(0, 399, Short.MAX_VALUE)
         );
 
         jPanelCentre.add(jPanelDonDangKyCentre, "card5");
@@ -502,24 +493,28 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel13)
-                    .addComponent(jLabel15))
-                .addGap(27, 27, 27)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldTTTenVatPham, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldTTPhong, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(71, 71, 71)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel11)
+                                .addGap(26, 26, 26)
+                                .addComponent(jTextFieldTTTenVatPham, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel13)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextFieldTTPhong, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(77, 77, 77)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel16)
                             .addComponent(jLabel12))
-                        .addGap(49, 49, 49)
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextFieldTTSoLuong, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldTTNgayCapNhat, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jTextFieldTT, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel15)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextFieldTT, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -549,7 +544,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel14.setText("Phòng:");
 
-        jComboBoxPhong.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hội trường", "Phòng chức năng 1", " " }));
+        jComboBoxPhong.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hội trường", "Phòng chức năng 1" }));
         jComboBoxPhong.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxPhongActionPerformed(evt);
@@ -580,7 +575,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(jComboBoxVatPham, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(49, 49, 49)
                         .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                         .addComponent(jComboBoxPhong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(131, 131, 131))))
             .addGroup(jPanelCapNhatCSVCLayout.createSequentialGroup()
@@ -756,7 +751,6 @@ public class MainFrame extends javax.swing.JFrame {
             JScrollPane donDangKy = new PheDuyetYeuCauNguoiDungViews().pheDuyetYeuCauNguoiDung();         
             donDangKy.setSize(jPanelDonDangKyCentre.getSize());
             jPanelDonDangKyCentre.add(donDangKy);
-            jPanelDonDangKyCentre.remove(jLabel9);
             jPanelDonDangKyCentre.setVisible(true);
         }
         if(evt.getSource() == jPanelDangXuat){
@@ -914,7 +908,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelGia;
     private javax.swing.JLabel jLabelLoaiSuKien;
     private javax.swing.JLabel jLabelMoTa;

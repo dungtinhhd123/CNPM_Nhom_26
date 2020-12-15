@@ -24,9 +24,9 @@ public class ThemSuKienFrame extends javax.swing.JFrame {
     }
     
     private boolean check(){
-        if(jTextFieldTenSk.getText().length() != 0 || jTextFieldLoaiSk.getText().length() != 0 || jTextFieldMoTa.getText().length() == 0
-            || jTextFieldChiPhi.getText().length() != 0 || dateTimePickerStart.getDatePicker().toString().length() == 0
-            || dateTimePickerStart.getTimePicker().toString().length() != 0 || dateTimePickerFinish.getDatePicker().toString().length() == 0
+        if(jTextFieldTenSk.getText().length() == 0 || jTextFieldLoaiSk.getText().length() == 0 || jTextFieldMoTa.getText().length() == 0
+            || jTextFieldChiPhi.getText().length() == 0 || dateTimePickerStart.getDatePicker().toString().length() == 0
+            || dateTimePickerStart.getTimePicker().toString().length() == 0 || dateTimePickerFinish.getDatePicker().toString().length() == 0
             || dateTimePickerFinish.getTimePicker().toString().length() == 0)
         {
             JOptionPane.showMessageDialog(null, "Vui vòng điền đẩy đủ thông tin", "Warning", JOptionPane.WARNING_MESSAGE);
@@ -106,8 +106,6 @@ public class ThemSuKienFrame extends javax.swing.JFrame {
 
         jLabel5.setText("Loại sự kiện:");
 
-        jTextFieldLoaiSk.setText(" ");
-
         jLabel6.setText("Chi phí:");
 
         jLabel7.setText("Mô tả:");
@@ -157,10 +155,10 @@ public class ThemSuKienFrame extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel6)
                                 .addGap(52, 52, 52)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jComboBox1, 0, 95, Short.MAX_VALUE)
-                            .addComponent(jTextFieldChiPhi))
-                        .addGap(77, 77, 77))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldChiPhi, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(36, 36, 36))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jTextFieldMoTa)
                         .addContainerGap())
@@ -238,9 +236,9 @@ public class ThemSuKienFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        if(jTextFieldTenSk.getText().length() != 0 || jTextFieldLoaiSk.getText().length() != 0 || jTextFieldMoTa.getText().length() == 0
-            || jTextFieldChiPhi.getText().length() != 0 || dateTimePickerStart.getDatePicker().toString().length() == 0
-            || dateTimePickerStart.getTimePicker().toString().length() != 0 || dateTimePickerFinish.getDatePicker().toString().length() == 0
+        if(jTextFieldTenSk.getText().length() != 0 || jTextFieldLoaiSk.getText().length() != 0 || jTextFieldMoTa.getText().length() != 0
+            || jTextFieldChiPhi.getText().length() != 0 || dateTimePickerStart.getDatePicker().toString().length() != 0
+            || dateTimePickerStart.getTimePicker().toString().length() != 0 || dateTimePickerFinish.getDatePicker().toString().length() != 0
             || dateTimePickerFinish.getTimePicker().toString().length() != 0){            
             if (JOptionPane.showConfirmDialog(null, "Bạn có muốn hủy?", "WARNING",
                     JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
@@ -248,7 +246,7 @@ public class ThemSuKienFrame extends javax.swing.JFrame {
             } else {                           
             }
         } else {
-//            this.dispose();
+            this.dispose();
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
