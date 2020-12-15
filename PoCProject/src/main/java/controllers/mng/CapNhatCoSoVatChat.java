@@ -23,10 +23,10 @@ public class CapNhatCoSoVatChat {
         try{
             Connection conn = MysqlConnection.getMysqlConnection();
             Statement st = conn.createStatement();
-            ResultSet rs = st.executeQuery("select * from Infrastructures");
+            ResultSet rs = st.executeQuery("select * from Infrastructure");
             while(rs.next()){
                 if(rs.getString("ItemName").equals(name) && rs.getString("RoomName").equals(room)){
-                    return new ThongTinCoSoVatChat(name, rs.getString("RoomName"), rs.getString("ItemDescriptions"), rs.getInt("Amount"), rs.getString("LastTimeUpdate"));
+                    return new ThongTinCoSoVatChat(name, rs.getString("RoomName"), rs.getString("ItemDescription"), rs.getInt("Amount"), rs.getString("LastTimeUpdate"));
                 }
                 }
             } catch(SQLException e){
@@ -40,7 +40,7 @@ public class CapNhatCoSoVatChat {
         try{
             Connection conn = MysqlConnection.getMysqlConnection();
             Statement st = conn.createStatement();
-            PreparedStatement ps = conn.prepareStatement("update Infrastructures "
+            PreparedStatement ps = conn.prepareStatement("update Infrastructure "
                     + "set ItemName=?, ItemDescriptions=?, Amount=?, RoomName=?, LastTimeUpdate=?" 
                     + "where ItemName='" + name + "' and RoomName='" + room +"'");
             ps.setString(1, name);
@@ -59,16 +59,17 @@ public class CapNhatCoSoVatChat {
     
     public static void themCSVC(String name, String room, String date, String description, int amount){
         try{
-            Connection conn = MysqlConnection.getMysqlConnection();
+            Connection conn = MysqlConnection.getMysqlConnection();         
             Statement st = conn.createStatement();
-            ResultSet rs = st.executeQuery("select * from Infrastructures");
+//            String quyeryID = "SELECT "
+            ResultSet rs = st.executeQuery("select * from Infrastructure");
             while(rs.next()){
                 if(rs.getString("ItemName").equals(name) && rs.getString("RoomName").equals(room)){
                     JOptionPane.showMessageDialog(null, "Tên vật phẩm đã tồn tại", "Warning", JOptionPane.WARNING_MESSAGE);
                     return;
                 }
             }
-            PreparedStatement ps = conn.prepareStatement("INSERT INTO Infrastructures(ItemName, ItemDescriptions, Amount, RoomName, LastTimeUpdate) VALUES(?, ?, ?, ?, ?)");
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO Infrastructure(ItemName, ItemDescription, Amount, RoomName, LastTimeUpdate) VALUES(?, ?, ?, ?, ?)");
             ps.setString(1, name);
             ps.setString(2, description);
             ps.setInt(3, amount);
@@ -77,6 +78,7 @@ public class CapNhatCoSoVatChat {
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Cập nhật thành công");
         } catch(SQLException e){
+            System.out.println(e);
                 }
             catch(ClassNotFoundException e){       
             }

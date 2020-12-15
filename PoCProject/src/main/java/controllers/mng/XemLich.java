@@ -21,9 +21,9 @@ public class XemLich {
         try{
             Connection conn =  services.MysqlConnection.getMysqlConnection();
             Statement st = conn.createStatement();
-            ResultSet rs = st.executeQuery("select * from event");
+            ResultSet rs = st.executeQuery("select * from eventtable");
             while(rs.next()){  
-                model.addRow(new Object[]{rs.getString("Name"), rs.getString("StartTime"), rs.getString("FinishTime"), rs.getString("Room")});
+                model.addRow(new Object[]{rs.getString("EVENTName"), rs.getString("StartTime"), rs.getString("FinishTime"), rs.getString("RoomNAME")});
             }
         } catch(SQLException e){
         } catch(ClassNotFoundException e){
@@ -35,15 +35,15 @@ public class XemLich {
         try{
             Connection conn =  services.MysqlConnection.getMysqlConnection();
             Statement st = conn.createStatement();
-            ResultSet rs = st.executeQuery("select * from event");
+            ResultSet rs = st.executeQuery("select * from eventTABLE");
             while(rs.next()){  
-                if(rs.getString("Name").equals(model.getValueAt(index, 0).toString()) && rs.getString("StartTime").equals(model.getValueAt(index, 1).toString())){                   
-                    arr.add(rs.getString("Name"));
+                if(rs.getString("EVENTName").equals(model.getValueAt(index, 0).toString()) && rs.getString("StartTime").equals(model.getValueAt(index, 1).toString())){                   
+                    arr.add(rs.getString("EVENTName"));
                     arr.add(rs.getString("StartTime"));
                     arr.add(rs.getString("FinishTime"));
-                    arr.add(rs.getString("Room"));
+                    arr.add(rs.getString("RoomNAME"));
                     arr.add(rs.getString("Note"));
-                    arr.add(rs.getString("Descriptions"));
+                    arr.add(rs.getString("EVENTDescription"));
                     arr.add(rs.getString("Fee"));
                     return arr;
                 }
