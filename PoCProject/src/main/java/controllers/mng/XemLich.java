@@ -21,7 +21,7 @@ public class XemLich {
         try{
             Connection conn =  services.MysqlConnection.getMysqlConnection();
             Statement st = conn.createStatement();
-            ResultSet rs = st.executeQuery("select * from eventtable");
+            ResultSet rs = st.executeQuery("select * from eventtable order by starttime desc");
             while(rs.next()){  
                 model.addRow(new Object[]{rs.getString("EVENTName"), rs.getString("StartTime"), rs.getString("FinishTime"), rs.getString("RoomNAME")});
             }

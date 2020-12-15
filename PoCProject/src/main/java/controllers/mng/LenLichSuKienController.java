@@ -38,7 +38,7 @@ public class LenLichSuKienController {
             ps.setInt(7, lich.getNote());
             ps.setInt(8, eventID);
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Thêm thành công");
+            JOptionPane.showMessageDialog(null, "Đã thêm sự kiện");
         } catch(SQLException e){
             System.out.println(e);
             
