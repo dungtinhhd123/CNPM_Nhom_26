@@ -261,5 +261,7 @@ public class CapNhatCoSoVatChatFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JSpinner jSpinnerSoLuong;
     private javax.swing.JTextField jTextFieldThongTin;
+	pritvate javax.swing.*;
+
     // End of variables declaration//GEN-END:variables
 }
